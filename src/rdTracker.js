@@ -35,7 +35,7 @@ function sendData(email) {
   .then((response) => {
     user.id = response.data.id;
     localStorage.user = JSON.stringify(user);
-  })
+  });
 }
 
-export { sendData }
+export { sendData };
