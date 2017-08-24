@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import Layout from '../../shared';
 
 class Price extends Component {
   render() {
     return (
       <div className="price">
-        <h2>Welcome to Price</h2>
+        <Layout>
+          <h2>Welcome to Price</h2>
+        </Layout>
       </div>
     );
   }

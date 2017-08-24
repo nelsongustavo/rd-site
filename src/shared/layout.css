@@ -1,0 +1,30 @@
+.header a {
+  font-family: 'Open Sans',sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  display: block;
+  line-height: 50px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.header a span {
+  font-size: 12px;
+  color: #d9534f;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-inverse {
+  background-color: #383737;
+  border-color: #080808;
+}
+
+.layout-footer {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+}

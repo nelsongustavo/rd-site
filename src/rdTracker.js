@@ -1,15 +1,21 @@
 import axios from 'axios';
 
-export default function tracker() {
+export default function tracker(page) {
   if (localStorage.user) {
-    updateUserTracks();
+    updateUserTracks(page);
   } else {
-    addUserToStorage();
+    addUserToStorage(page);
   }
 }
 
-function addUserToStorage() {
-  const user = { "id": "", "name": "", "email": "", "tracks_attributes": [{"url": window.location.pathname, "date": new Date().getTime()}]};
+function addUserToStorage(page) {
+  const user = { "id": "", "name": "", "email": "", "tracks_attributes": [{"url": page, "date": new Date().getTime()}]};
+  localStorage.user = JSON.stringify(user);
+}
+
+function updateUserTracks(page) {
+  let user = JSON.parse(localStorage.user);
+  user.tracks_attributes.push({"url": page, "date": new Date().getTime()});
   localStorage.user = JSON.stringify(user);
 }
 
@@ -20,12 +26,6 @@ function hasEmail() {
   } else {
     return false;
   }
-}
-
-function updateUserTracks() {
-  let user = JSON.parse(localStorage.user);
-  user.tracks_attributes.push({"url": window.location.pathname, "date": new Date().getTime()});
-  localStorage.user = JSON.stringify(user);
 }
 
 function sendData(email) {

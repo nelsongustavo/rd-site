@@ -6,19 +6,18 @@ import Home from './scenes/home';
 import Contact from './scenes/contact';
 import Price from './scenes/price';
 import registerServiceWorker from './registerServiceWorker';
-import tracker from './rdTracker';
+import withTracker from './shared/_/withTracker';
 import './index.css';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <div>
+  <div>
+    <BrowserRouter>
       <Switch>
-        <Route path="/price" component={Price} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/" component={Home} />
+        <Route path="/price" component={withTracker(Price)}/>
+        <Route path="/contact" component={withTracker(Contact)}/>
+        <Route path="/" component={withTracker(Home)}/>
       </Switch>
-    </div>
-  </BrowserRouter>,
+    </BrowserRouter>
+  </div>,
   document.getElementById('root'));
 registerServiceWorker();
-tracker();
