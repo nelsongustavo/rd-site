@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './scenes/home';
 import Contact from './scenes/contact';
 import Price from './scenes/price';
+import About from './scenes/about';
 import registerServiceWorker from './registerServiceWorker';
 import withTracker from './shared/_/withTracker';
 import './index.css';
@@ -13,6 +14,7 @@ ReactDOM.render(
   <div>
     <BrowserRouter>
       <Switch>
+        <Route path="/about" component={withTracker(About)}/>
         <Route path="/price" component={withTracker(Price)}/>
         <Route path="/contact" component={withTracker(Contact)}/>
         <Route path="/" component={withTracker(Home)}/>

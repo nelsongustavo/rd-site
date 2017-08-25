@@ -10,13 +10,13 @@ export default function tracker(page) {
 }
 
 function addUserToStorage(page) {
-  const user = { "id": "", "name": "", "email": "", "tracks_attributes": [{"url": page, "date": new Date().getTime()}]};
+  const user = { "id": "", "name": "", "email": "", "tracks_attributes": [{"url": page, "date": new Date().toUTCString()}]};
   localStorage.user = JSON.stringify(user);
 }
 
 function updateUserTracks(page) {
   let user = JSON.parse(localStorage.user);
-  const track = {"url": page, "date": new Date().getTime()};
+  const track = {"url": page, "date": new Date().toUTCString()};
 
   user.tracks_attributes.push(track);
   localStorage.user = JSON.stringify(user);
