@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const BASEPATH = "http://localhost:3000";
+
 export default function tracker(page) {
 
   if (localStorage.user) {
@@ -15,7 +17,7 @@ function addUserToStorage(page) {
 }
 
 function updateUserTracks(page) {
-  let user = JSON.parse(localStorage.user);
+  const user = JSON.parse(localStorage.user);
   const track = {"url": page, "date": new Date().toUTCString()};
 
   user.tracks_attributes.push(track);
@@ -36,13 +38,13 @@ function hasEmail() {
 }
 
 function addTrackData(userId, track) {
-  axios.post(`http://localhost:3000/api/v1/users/${userId}/tracks`, track);
+  axios.post(`${BASEPATH}/api/v1/users/${userId}/tracks`, track);
 }
 
 function sendData(email) {
-  let user = JSON.parse(localStorage.user);
+  const user = JSON.parse(localStorage.user);
   user.email = email;
-  axios.post('http://localhost:3000/api/v1/users', user)
+  axios.post(`${BASEPATH}/api/v1/users`, user)
   .then((response) => {
     user.id = response.data.id;
     localStorage.user = JSON.stringify(user);

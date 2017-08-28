@@ -7,10 +7,10 @@ export default () => {
     <Navbar inverse className="header">
       <div className="container">
         <ul className="nav navbar-nav">
-          <li className="nav-item"><Link to="/">Home</Link></li>
-          <li className="nav-item"><Link to="/price">Price</Link></li>
-          <li className="nav-item"><Link to="/contact">Contact</Link></li>
-          <li className="nav-item"><Link to="/about">About</Link></li>
+          <li id="home" className="nav-item"><Link to="/">Home</Link></li>
+          <li id="price" className="nav-item"><Link to="/price">Price</Link></li>
+          <li id="contact" className="nav-item"><Link to="/contact">Contact</Link></li>
+          <li id="about" className="nav-item"><Link to="/about">About</Link></li>
         </ul>
       </div>
    </Navbar>
