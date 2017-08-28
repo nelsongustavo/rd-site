@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { sendData } from "../../../rdTracker"
+import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
 export default class Form extends Component {
   constructor(props) {
@@ -43,19 +44,22 @@ export default class Form extends Component {
 
   render() {
     return (
-      <div>
+      <div className="lead-form">
         <div className="result">{ this.state.message }</div>
-        <form onSubmit={this.onFormSubmit} className="input-group">
-          <input
-            placeholder="Email"
-            className="form-control"
-            value={this.state.email}
-            onChange={this.onInputChange}
-            name="email"
-          />
-          <span className="input-group-btn">
-            <button type="submit" className="btn btn-secondary" disabled={!this.state.formValid}>Submit</button>
-          </span>
+        <form onSubmit={this.onFormSubmit} className="form">
+          <FormGroup bsSize="large">
+           <FormControl
+             bsSize="large"
+             type="email"
+             className="email"
+             placeholder="E-mail"
+             value={this.state.email}
+             onChange={this.onInputChange}
+             name="email" />
+         </FormGroup>
+         <Button type="submit" className="button" bsStyle="danger" bsSize="large" disabled={!this.state.formValid}>
+           SUBMIT
+         </Button>
         </form>
       </div>
     );

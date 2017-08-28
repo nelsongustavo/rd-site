@@ -18,9 +18,9 @@ describe('e2e test', () => {
       userA.sleep(1000);
       userA.findElement(By.css('#price > a')).click();
       userA.wait(until.elementLocated(By.css('.price')));
-      return userA.findElement(By.css('h2')).then(element => {
+      return userA.findElement(By.css('h1')).then(element => {
         element.getText().then(text => {
-          expect(text).toEqual("Welcome to Price");
+          expect(text).toEqual("Pricing");
         });
       });
     });
@@ -34,9 +34,9 @@ describe('e2e test', () => {
       userB.findElement(By.css('#contact > a')).click();
       userB.wait(until.elementLocated(By.css('.contact')));
 
-      return userB.findElement(By.css('h2')).then(element => {
+      return userB.findElement(By.css('h1')).then(element => {
         element.getText().then(text => {
-          expect(text).toEqual("Welcome to Contact");
+          expect(text).toEqual("Contact");
         });
       });
     });
@@ -77,7 +77,7 @@ describe('e2e test', () => {
 
       return userB.findElement(By.css('h2')).then(element => {
         element.getText().then(text => {
-          expect(text).toEqual("Welcome to About");
+          expect(text).toEqual("About Us");
         });
       });
     });
