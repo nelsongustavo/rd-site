@@ -6,7 +6,7 @@ const userA = new Builder().forBrowser('firefox').build();
 const userB = new Builder().forBrowser('chrome').build();
 const userAEmail = "userAFromSelenium@gmail.com";
 const userBEmail = "userBFromSelenium@gmail.com";
-const HOST = "http://localhost:3001";
+const HOST = "https://site-rd.herokuapp.com/";
 
 describe('e2e test', () => {
 
